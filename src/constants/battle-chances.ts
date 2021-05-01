@@ -1,0 +1,2 @@
+export const PROBABILITY_FOR_CORONA = 0.4;
+export const PERCENT_OF_DEATH_SOLDERS = 0.6;
