@@ -1,5 +1,5 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
-import { ErrorFilter } from '../error.filter';
+import { ErrorFilter } from './error.filter';
 
 const createGlobalSetup = (app: INestApplication) => {
   app.useGlobalFilters(new ErrorFilter());
