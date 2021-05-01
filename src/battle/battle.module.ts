@@ -7,4 +7,4 @@ import { BattleService } from './battle.service';
   controllers: [BattleController],
   providers: [BattleService],
 })
-export class AppModule {}
+export class BattleModule {}
