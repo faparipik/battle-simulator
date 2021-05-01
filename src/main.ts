@@ -1,20 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 import * as apm from 'elastic-apm-node';
-import { ErrorFilter } from './error.filter';
 import config from './config/env.config';
+import createSwagger from './config/swagger-configuration';
+import createGlobalSetup from './config/global-configs';
 
 async function bootstrap() {
   const { port } = config;
   apm.start();
   const app = await NestFactory.create(AppModule);
-  app.useGlobalFilters(new ErrorFilter());
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-    }),
-  );
+  createGlobalSetup(app);
+  createSwagger(app);
 
   await app.listen(port);
 }
