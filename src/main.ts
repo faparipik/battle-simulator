@@ -9,6 +9,7 @@ async function bootstrap() {
   const { port } = config;
   apm.start();
   const app = await NestFactory.create(AppModule);
+  app.setGlobalPrefix('v1');
   createGlobalSetup(app);
   createSwagger(app);
 
