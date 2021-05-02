@@ -9,7 +9,7 @@ const createSwagger = (app: INestApplication) => {
     .addTag('battle')
     .build();
   const document = SwaggerModule.createDocument(app, api);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('/v1/api', app, document);
 };
 
 export default createSwagger;
